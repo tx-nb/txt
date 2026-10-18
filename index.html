@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>八字排盘 · 干支历</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="site-head">
+      <h1>八字排盘</h1>
+      <p class="subtitle">公历生辰 · 四柱五行</p>
+    </header>
+
+    <section class="card form-card" aria-label="出生信息">
+      <div class="form-grid">
+        <label class="field">
+          <span class="field-label">公历出生年月</span>
+          <span class="field-row">
+            <input type="number" id="input-year" min="1900" max="2100" value="1990" placeholder="1990">
+            <span class="unit">年</span>
+            <select id="input-month" aria-label="月"></select>
+            <span class="unit">月</span>
+          </span>
+        </label>
+        <label class="field">
+          <span class="field-label">公历出生日</span>
+          <span class="field-row">
+            <select id="input-day" aria-label="日"></select>
+            <span class="unit">日</span>
+          </span>
+        </label>
+        <label class="field field-hour">
+          <span class="field-label">出生时辰</span>
+          <span class="field-row">
+            <select id="input-hour" aria-label="时辰"></select>
+          </span>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button id="btn-paipan" type="button">开 始 排 盘</button>
+      </div>
+      <p class="form-tip">支持公历 1900 年 1 月 31 日 至 2100 年 12 月 31 日 · 时辰按当地真太阳时校准后选择</p>
+    </section>
+
+    <section class="card result-card" id="result" hidden aria-label="排盘结果">
+      <div class="result-head">
+        <h2 class="result-title">命 盘</h2>
+        <p class="result-lunar" id="result-lunar"></p>
+      </div>
+
+      <div class="pillars" id="pillars"></div>
+
+      <div class="five-elements">
+        <h3 class="block-title">五行统计</h3>
+        <div class="elements-row" id="elements-row"></div>
+      </div>
+
+      <div class="result-meta">
+        <span class="meta-item">生肖 <b id="meta-animal"></b></span>
+        <span class="meta-item">主星 <b id="meta-master"></b></span>
+        <span class="meta-item">藏干 <b id="meta-hidden"></b></span>
+        <span class="meta-item">纳音 <b id="meta-nayin"></b></span>
+        <span class="meta-item">旬空 <b id="meta-xunkong"></b></span>
+      </div>
+    </section>
+
+    <section class="card insight-card" id="insight" hidden aria-label="命理详解">
+      <div class="result-head">
+        <h2 class="result-title">命 理 详 解</h2>
+        <p class="result-lunar">性格 · 事业 · 大运 · 流年</p>
+      </div>
+
+      <!-- 八大模块容器 -->
+      <div class="insight-grid" id="insight-grid"></div>
+
+      <!-- 大运：折叠面板 -->
+      <div class="dayun-block">
+        <h3 class="block-title">大运走势</h3>
+        <p class="dayun-intro" id="dayun-intro"></p>
+        <div class="dayun-list" id="dayun-list"></div>
+      </div>
+
+      <!-- 流年选择 -->
+      <div class="liunian-block">
+        <h3 class="block-title">流年提示</h3>
+        <div class="liunian-row">
+          <span class="liunian-label">选择年份：</span>
+          <select id="input-liunian" aria-label="流年"></select>
+        </div>
+        <div class="liunian-detail" id="liunian-detail"></div>
+      </div>
+
+      <p class="insight-note">本内容仅为传统文化民俗趣味推演，不构成人生决策依据。</p>
+    </section>
+
+    <footer class="site-foot">
+      <p>仅供传统文化研究参考 · 纯前端本地推算 · 数据表 1900–2100</p>
+    </footer>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
